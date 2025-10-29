@@ -59,7 +59,9 @@ use Scrada\CashBook\Update\UpdateCashBook;
 use Scrada\Company\Type\Primitive\CompanyId;
 
 $companyId = CompanyId::fromString('4ccc0005-0bdd-430b-8f45-264c3f1a2a02');
+
 $cashBookId = CashBookId::fromString('d84835b0-7125-4f8f-b10a-957a0cc73089');
+
 $data = UpdateCashBook::parameters(
     name: Name::fromString('Acme Inc.'),
     codaGenerationPeriodType: CodaGenerationPeriod::EveryDay,
