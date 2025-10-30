@@ -183,7 +183,14 @@ A request is deemed retriable when any of the following HTTP status codes is ret
 
 The SDK defaults to a 10 second timeout. 
 
-## Progress
+## Implementation progress
+
+| Resource         | Action                                                   |
+| ---------------- | -------------------------------------------------------- |
+| Cash book        | Get all cash books                                       |
+|                  | Update cash book                                         |
+| Company          | Get company                                              |
+|                  | Update company                                           |
 
 While the SDK is battle-tested and production-ready, only a handful of API interactions have been implemented thus far.
 Please bear in mind this is an unofficial SDK, so we have to prioritize available resources at this time.
