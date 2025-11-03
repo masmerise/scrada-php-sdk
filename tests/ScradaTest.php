@@ -8,11 +8,13 @@ use Scrada\Authentication\Credentials;
 use Scrada\Scrada;
 use Tests\CashBook\CashBookTests;
 use Tests\Company\CompanyTests;
+use Tests\Core\FailureTests;
 
 final class ScradaTest extends TestCase
 {
     use CashBookTests;
     use CompanyTests;
+    use FailureTests;
 
     private Scrada $scrada;
 

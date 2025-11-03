@@ -38,6 +38,11 @@ final class ScradaConnector extends Connector
         $this->store = new MemoryStore();
     }
 
+    public function hasRequestFailed(Response $response): bool
+    {
+        return $response->serverError() && $response->json('errorType') !== 1;
+    }
+
     public function resolveBaseUrl(): string
     {
         return $this->environment->url();
