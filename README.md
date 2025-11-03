@@ -22,6 +22,12 @@ You can install the package via [composer](https://getcomposer.org):
 composer require masmerise/scrada-php-sdk
 ```
 
+### Adapters
+
+You may also use one of the available adapters instead:
+
+- [Laravel](https://github.com/masmerise/scrada-for-laravel)
+
 ## Getting started
 
 You can always refer to the [documentation](https://www.scrada.be/api-documentation/) to examine the various resources that are available.
