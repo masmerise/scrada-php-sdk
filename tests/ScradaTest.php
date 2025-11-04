@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Tests;
+namespace Scrada\Tests;
 
 use Dotenv\Dotenv;
 use PHPUnit\Framework\TestCase;
 use Scrada\Scrada;
-use Tests\Authentication\AuthenticationTests;
-use Tests\CashBook\CashBookTests;
-use Tests\Company\CompanyTests;
-use Tests\Core\FailureTests;
+use Scrada\Tests\Authentication\AuthenticationTests;
+use Scrada\Tests\CashBook\CashBookTests;
+use Scrada\Tests\Company\CompanyTests;
+use Scrada\Tests\Core\FailureTests;
 
 final class ScradaTest extends TestCase
 {

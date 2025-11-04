@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Core;
+namespace Scrada\Tests\Core;
 
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
@@ -8,7 +8,7 @@ use Scrada\Company\Type\Primitive\CompanyId;
 use Scrada\Company\Type\Primitive\VatNumber;
 use Scrada\Company\Update\Failure\CouldNotUpdateCompany;
 use Scrada\Company\Update\UpdateCompany;
-use Tests\ScradaTest;
+use Scrada\Tests\ScradaTest;
 
 /** @mixin ScradaTest */
 trait FailureTests

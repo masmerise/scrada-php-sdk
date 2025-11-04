@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Authentication;
+namespace Scrada\Tests\Authentication;
 
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
@@ -8,7 +8,7 @@ use Scrada\Authentication\Credentials;
 use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\Company\Type\Primitive\CompanyId;
 use Scrada\Scrada;
-use Tests\ScradaTest;
+use Scrada\Tests\ScradaTest;
 
 /** @mixin ScradaTest */
 trait AuthenticationTests

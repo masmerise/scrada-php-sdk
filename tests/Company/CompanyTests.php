@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Company;
+namespace Scrada\Tests\Company;
 
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
@@ -17,7 +17,7 @@ use Scrada\Company\Type\Primitive\ReportLanguageId;
 use Scrada\Company\Type\Primitive\Street;
 use Scrada\Company\Type\Primitive\ZipCode;
 use Scrada\Company\Update\UpdateCompany;
-use Tests\ScradaTest;
+use Scrada\Tests\ScradaTest;
 
 /** @mixin ScradaTest */
 trait CompanyTests

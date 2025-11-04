@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Authentication;
+namespace Scrada\Tests\Authentication;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\Group;

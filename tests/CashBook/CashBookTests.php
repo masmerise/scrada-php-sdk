@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\CashBook;
+namespace Scrada\Tests\CashBook;
 
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
@@ -14,7 +14,7 @@ use Scrada\CashBook\Type\Primitive\Name;
 use Scrada\CashBook\Update\UpdateCashBook;
 use Scrada\Company\Type\Primitive\CompanyId;
 use Scrada\Core\Type\Primitive\Date;
-use Tests\ScradaTest;
+use Scrada\Tests\ScradaTest;
 
 /** @mixin ScradaTest */
 trait CashBookTests
