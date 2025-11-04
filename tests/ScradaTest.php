@@ -4,14 +4,15 @@ namespace Tests;
 
 use Dotenv\Dotenv;
 use PHPUnit\Framework\TestCase;
-use Scrada\Authentication\Credentials;
 use Scrada\Scrada;
+use Tests\Authentication\AuthenticationTests;
 use Tests\CashBook\CashBookTests;
 use Tests\Company\CompanyTests;
 use Tests\Core\FailureTests;
 
 final class ScradaTest extends TestCase
 {
+    use AuthenticationTests;
     use CashBookTests;
     use CompanyTests;
     use FailureTests;
@@ -23,8 +24,6 @@ final class ScradaTest extends TestCase
         $env = Dotenv::createImmutable(__DIR__);
         $env->load();
 
-        $this->scrada = Scrada::authenticate(
-            Credentials::present(key: $_ENV['API_KEY'], password: $_ENV['PASSWORD'])
-        )->useTest();
+        $this->scrada = $this->newInstance($_ENV['API_KEY'], $_ENV['PASSWORD'])->useTest();
     }
 }

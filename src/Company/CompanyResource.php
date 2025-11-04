@@ -2,6 +2,7 @@
 
 namespace Scrada\Company;
 
+use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\Company\Get\Failure\CouldNotGetCompany;
 use Scrada\Company\Get\Request\GetCompanyRequest;
 use Scrada\Company\Type\Company;
@@ -22,6 +23,7 @@ final readonly class CompanyResource extends ScradaResource
     /**
      * Get the specified company.
      *
+     * @throws CouldNotAuthenticate
      * @throws CouldNotGetCompany
      * @throws ScradaApiException
      * @throws UnknownException
@@ -41,6 +43,7 @@ final readonly class CompanyResource extends ScradaResource
      *
      * If a property of the company is set null or a property is missing then the system assumes that this property must keep its original value.
      *
+     * @throws CouldNotAuthenticate
      * @throws CouldNotUpdateCompany
      * @throws ScradaApiException
      * @throws UnknownException

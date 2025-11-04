@@ -82,6 +82,7 @@ The SDK uses exceptions as its medium to communicate failures.
 
 ```
 ScradaException
+├── CouldNotAuthenticate (Authentication Errors)
 ├── UnknownException (Connection Errors)
 └── ScradaApiException (Request Errors)
     ├── CouldNotGetCompany

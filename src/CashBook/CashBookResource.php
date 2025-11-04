@@ -2,6 +2,7 @@
 
 namespace Scrada\CashBook;
 
+use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\CashBook\All\Failure\CouldNotGetAllCashBooks;
 use Scrada\CashBook\All\Request\GetAllCashBooksRequest;
 use Scrada\CashBook\Type\CashBook;
@@ -24,6 +25,8 @@ final readonly class CashBookResource extends ScradaResource
      * Get all cash books belonging to this company.
      *
      * @return array<CashBook>
+     *
+     * @throws CouldNotAuthenticate
      * @throws CouldNotGetAllCashBooks
      * @throws ScradaApiException
      * @throws UnknownException
@@ -44,6 +47,7 @@ final readonly class CashBookResource extends ScradaResource
      * If a property of the cash book is set null or a property is missing then the system assumes that this property must keep its original value.
      * Only in case of property endDate, if this property is missing or has has value null, the system assumes that it has value null.
      *
+     * @throws CouldNotAuthenticate
      * @throws CouldNotUpdateCashBook
      * @throws ScradaApiException
      * @throws UnknownException

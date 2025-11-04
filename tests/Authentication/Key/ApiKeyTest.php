@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Authentication;
+namespace Tests\Authentication\Key;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\Group;

@@ -5,6 +5,7 @@ namespace Scrada\Core\Http;
 use JsonException;
 use Saloon\Exceptions\SaloonException;
 use Saloon\Http\Request;
+use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\Core\Failure\Mapping\MapsScradaErrors;
 use Scrada\Core\Failure\ScradaApiException;
 use Scrada\Core\Failure\UnknownException;
@@ -20,6 +21,7 @@ abstract readonly class ScradaResource
      * @param Request $request
      * @param class-string<ScradaApiException> $onFailure
      *
+     * @throws CouldNotAuthenticate
      * @throws UnknownException
      * @throws ScradaApiException
      */
@@ -39,6 +41,10 @@ abstract readonly class ScradaResource
 
         if ($response->successful()) {
             return $data;
+        }
+
+        if ($response->status() === 401) {
+            throw CouldNotAuthenticate::becauseTheApiKeyAndOrPasswordIsWrong();
         }
 
         throw new $onFailure($this->toScradaError($data));
