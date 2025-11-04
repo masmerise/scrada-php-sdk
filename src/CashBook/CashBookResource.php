@@ -12,8 +12,8 @@ use Scrada\CashBook\Update\Failure\CouldNotUpdateCashBook;
 use Scrada\CashBook\Update\Request\UpdateCashBookRequest;
 use Scrada\CashBook\Update\UpdateCashBook;
 use Scrada\Company\Type\Primitive\CompanyId;
-use Scrada\Core\Failure\ScradaApiException;
 use Scrada\Core\Failure\UnknownException;
+use Scrada\Core\Failure\ValidationException;
 use Scrada\Core\Http\ScradaResource;
 
 /** @internal */
@@ -28,8 +28,8 @@ final readonly class CashBookResource extends ScradaResource
      *
      * @throws CouldNotAuthenticate
      * @throws CouldNotGetAllCashBooks
-     * @throws ScradaApiException
      * @throws UnknownException
+     * @throws ValidationException
      */
     public function all(CompanyId $companyId): array
     {
@@ -49,8 +49,8 @@ final readonly class CashBookResource extends ScradaResource
      *
      * @throws CouldNotAuthenticate
      * @throws CouldNotUpdateCashBook
-     * @throws ScradaApiException
      * @throws UnknownException
+     * @throws ValidationException
      */
     public function update(CompanyId $companyId, CashBookId $cashBookId, UpdateCashBook $data): true
     {

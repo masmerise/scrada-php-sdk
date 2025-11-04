@@ -11,8 +11,8 @@ use Scrada\Company\Type\Primitive\CompanyId;
 use Scrada\Company\Update\Failure\CouldNotUpdateCompany;
 use Scrada\Company\Update\Request\UpdateCompanyRequest;
 use Scrada\Company\Update\UpdateCompany;
-use Scrada\Core\Failure\ScradaApiException;
 use Scrada\Core\Failure\UnknownException;
+use Scrada\Core\Failure\ValidationException;
 use Scrada\Core\Http\ScradaResource;
 
 /** @internal */
@@ -25,8 +25,8 @@ final readonly class CompanyResource extends ScradaResource
      *
      * @throws CouldNotAuthenticate
      * @throws CouldNotGetCompany
-     * @throws ScradaApiException
      * @throws UnknownException
+     * @throws ValidationException
      */
     public function get(CompanyId $id): Company
     {
@@ -45,8 +45,8 @@ final readonly class CompanyResource extends ScradaResource
      *
      * @throws CouldNotAuthenticate
      * @throws CouldNotUpdateCompany
-     * @throws ScradaApiException
      * @throws UnknownException
+     * @throws ValidationException
      */
     public function update(CompanyId $id, UpdateCompany $data): true
     {

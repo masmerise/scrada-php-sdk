@@ -2,6 +2,6 @@
 
 namespace Scrada\CashBook\Update\Failure;
 
-use Scrada\Core\Failure\ScradaApiException;
+use Scrada\Core\Failure\ValidationException;
 
-final class CouldNotUpdateCashBook extends ScradaApiException {}
+final class CouldNotUpdateCashBook extends ValidationException {}

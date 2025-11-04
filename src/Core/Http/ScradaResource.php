@@ -7,8 +7,8 @@ use Saloon\Exceptions\SaloonException;
 use Saloon\Http\Request;
 use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\Core\Failure\Mapping\MapsScradaErrors;
-use Scrada\Core\Failure\ScradaApiException;
 use Scrada\Core\Failure\UnknownException;
+use Scrada\Core\Failure\ValidationException;
 
 /** @internal */
 abstract readonly class ScradaResource
@@ -19,11 +19,11 @@ abstract readonly class ScradaResource
 
     /**
      * @param Request $request
-     * @param class-string<ScradaApiException> $onFailure
+     * @param class-string<ValidationException> $onFailure
      *
      * @throws CouldNotAuthenticate
      * @throws UnknownException
-     * @throws ScradaApiException
+     * @throws ValidationException
      */
     protected function send(Request $request, string $onFailure): array
     {

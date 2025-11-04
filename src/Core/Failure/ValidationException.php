@@ -2,7 +2,7 @@
 
 namespace Scrada\Core\Failure;
 
-abstract class ScradaApiException extends ScradaException
+abstract class ValidationException extends ScradaException
 {
     final public function __construct(public readonly ScradaError $error)
     {

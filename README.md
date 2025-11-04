@@ -84,7 +84,7 @@ The SDK uses exceptions as its medium to communicate failures.
 ScradaException
 ├── CouldNotAuthenticate (Authentication Errors)
 ├── UnknownException (Connection Errors)
-└── ScradaApiException (Request Errors)
+└── ValidationException (Request Errors)
     ├── CouldNotGetCompany
     ├── CouldNotUpdateCompany
     ├── CouldNotGetAllCashBooks
@@ -104,7 +104,7 @@ try {
 
 ### API failures
 
-API interaction failures, i.e. exceptions of type `ScradaApiException`, 
+API interaction failures, i.e. exceptions of type `ValidationException`, 
 always expose a special `ScradaError` object that contains the API's reasons for rejection:
 
 ```php

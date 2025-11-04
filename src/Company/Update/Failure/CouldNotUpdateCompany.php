@@ -2,6 +2,6 @@
 
 namespace Scrada\Company\Update\Failure;
 
-use Scrada\Core\Failure\ScradaApiException;
+use Scrada\Core\Failure\ValidationException;
 
-final class CouldNotUpdateCompany extends ScradaApiException {}
+final class CouldNotUpdateCompany extends ValidationException {}
