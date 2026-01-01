@@ -5,7 +5,7 @@ namespace Scrada\CashBook;
 use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\CashBook\All\Failure\CouldNotGetAllCashBooks;
 use Scrada\CashBook\All\Request\GetAllCashBooksRequest;
-use Scrada\CashBook\Type\CashBook;
+use Scrada\CashBook\Type\CashBooks;
 use Scrada\CashBook\Type\Mapping\MapsCashBooks;
 use Scrada\CashBook\Type\Primitive\CashBookId;
 use Scrada\CashBook\Update\Failure\CouldNotUpdateCashBook;
@@ -24,21 +24,24 @@ final readonly class CashBookResource extends ScradaResource
     /**
      * Get all cash books belonging to this company.
      *
-     * @return array<CashBook>
+     * @param CompanyId $companyId The company ID.
+     *
+     * @return CashBooks
      *
      * @throws CouldNotAuthenticate
-     * @throws CouldNotGetAllCashBooks
      * @throws UnknownException
      * @throws ValidationException
      */
-    public function all(CompanyId $companyId): array
+    public function all(CompanyId $companyId): CashBooks
     {
         $cashBooks = $this->send(
             request: new GetAllCashBooksRequest($companyId),
             onFailure: CouldNotGetAllCashBooks::class,
         );
 
-        return array_map($this->toCashBook(...), $cashBooks);
+        return CashBooks::of(
+            array_map($this->toCashBook(...), $cashBooks)
+        );
     }
 
     /**
@@ -46,6 +49,10 @@ final readonly class CashBookResource extends ScradaResource
      *
      * If a property of the cash book is set null or a property is missing then the system assumes that this property must keep its original value.
      * Only in case of property endDate, if this property is missing or has has value null, the system assumes that it has value null.
+     *
+     * @param CompanyId $companyId The company ID.
+     * @param CashBookId $cashBookId The cash book ID.
+     * @param UpdateCashBook $data The cash book data.
      *
      * @throws CouldNotAuthenticate
      * @throws CouldNotUpdateCashBook

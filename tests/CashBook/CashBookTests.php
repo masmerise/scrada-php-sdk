@@ -30,7 +30,6 @@ trait CashBookTests
         $cashBooks = $this->scrada->cashBook->all($companyId);
 
         // Assert
-        $this->assertIsArray($cashBooks);
         $this->assertContainsOnlyInstancesOf(CashBook::class, $cashBooks);
     }
 

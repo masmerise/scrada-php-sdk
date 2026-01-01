@@ -15,17 +15,17 @@
     ],
     "homepage": "https://github.com/masmerise/scrada-php-sdk",
     "require": {
-        "php": "~8.4",
+        "php": "~8.5",
         "psr/simple-cache": "^3.0",
-        "saloonphp/rate-limit-plugin": "^2.1",
+        "saloonphp/rate-limit-plugin": "^2.4",
         "saloonphp/saloon": "^3.14",
         "webmozart/assert": "^1.12"
     },
     "require-dev": {
-        "laravel/pint": "^1.25.1",
-        "phpstan/phpstan": "^2.1.31",
-        "phpunit/phpunit": "^12.4.1",
-        "vlucas/phpdotenv": "^5.6.2"
+        "laravel/pint": "^1.26.0",
+        "phpstan/phpstan": "^2.1.33",
+        "phpunit/phpunit": "^12.5.4",
+        "vlucas/phpdotenv": "^5.6.3"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

@@ -23,6 +23,8 @@ final readonly class CompanyResource extends ScradaResource
     /**
      * Get the specified company.
      *
+     * @param CompanyId $id The company ID.
+     *
      * @throws CouldNotAuthenticate
      * @throws CouldNotGetCompany
      * @throws UnknownException
@@ -42,6 +44,9 @@ final readonly class CompanyResource extends ScradaResource
      * Update an existing company.
      *
      * If a property of the company is set null or a property is missing then the system assumes that this property must keep its original value.
+     *
+     * @param CompanyId $id The company ID.
+     * @param UpdateCompany $data The company data.
      *
      * @throws CouldNotAuthenticate
      * @throws CouldNotUpdateCompany
