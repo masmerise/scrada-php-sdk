@@ -9,6 +9,7 @@ use Scrada\Tests\Authentication\AuthenticationTests;
 use Scrada\Tests\CashBook\CashBookTests;
 use Scrada\Tests\Company\CompanyTests;
 use Scrada\Tests\Core\FailureTests;
+use Scrada\Tests\Pos\PosTests;
 
 final class ScradaTest extends TestCase
 {
@@ -16,6 +17,7 @@ final class ScradaTest extends TestCase
     use CashBookTests;
     use CompanyTests;
     use FailureTests;
+    use PosTests;
 
     private Scrada $scrada;
 
