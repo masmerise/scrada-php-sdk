@@ -10,12 +10,15 @@ use Scrada\Company\CompanyResource;
 use Scrada\Core\Http\ScradaConnector;
 use Scrada\Environments\Environment;
 use Scrada\Localization\Language;
+use Scrada\Pos\PosResource;
 
 final readonly class Scrada
 {
     public CashBookResource $cashBook;
 
     public CompanyResource $company;
+
+    public PosResource $pos;
 
     private ScradaConnector $client;
 
@@ -24,6 +27,7 @@ final readonly class Scrada
         $this->client = new ScradaConnector($credentials);
         $this->cashBook = new CashBookResource($this->client);
         $this->company = new CompanyResource($this->client);
+        $this->pos = new PosResource($this->client);
     }
 
     public static function authenticate(Credentials $credentials): Scrada
