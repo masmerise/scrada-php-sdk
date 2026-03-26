@@ -19,8 +19,8 @@ final readonly class Receipt
 {
     private function __construct(
         public DateTimeWithOffset $receiptCreatedOn,
+        public ReceiptNumber $number,
         public ?ReceiptId $receiptID = null,
-        public ?ReceiptNumber $number = null,
         public ?DateTimeWithOffset $receiptFinalizedOn = null,
         public ?bool $convertToInvoice = null,
         public ?LocationId $locationID = null,
@@ -39,8 +39,8 @@ final readonly class Receipt
 
     public static function parameters(
         DateTimeWithOffset $receiptCreatedOn,
+        ReceiptNumber $number,
         ?ReceiptId $receiptID = null,
-        ?ReceiptNumber $number = null,
         ?DateTimeWithOffset $receiptFinalizedOn = null,
         ?bool $convertToInvoice = null,
         ?LocationId $locationID = null,
@@ -58,8 +58,8 @@ final readonly class Receipt
     ): self {
         return new self(
             receiptCreatedOn: $receiptCreatedOn,
-            receiptID: $receiptID,
             number: $number,
+            receiptID: $receiptID,
             receiptFinalizedOn: $receiptFinalizedOn,
             convertToInvoice: $convertToInvoice,
             locationID: $locationID,
@@ -82,7 +82,7 @@ final readonly class Receipt
     {
         return array_filter([
             'receiptID' => $this->receiptID?->toString(),
-            'number' => $this->number?->toString(),
+            'number' => $this->number->toString(),
             'receiptCreatedOn' => $this->receiptCreatedOn->toString(),
             'receiptFinalizedOn' => $this->receiptFinalizedOn?->toString(),
             'convertToInvoice' => $this->convertToInvoice,

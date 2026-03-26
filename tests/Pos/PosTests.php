@@ -22,10 +22,12 @@ use Scrada\Pos\Type\Primitive\CountryCode;
 use Scrada\Pos\Type\Primitive\CustomerName;
 use Scrada\Pos\Type\Primitive\ItemName;
 use Scrada\Pos\Type\Primitive\ItemType;
+use Scrada\Pos\Type\Primitive\PaymentMethodName;
 use Scrada\Pos\Type\Primitive\PaymentMethodType;
 use Scrada\Pos\Type\Primitive\PaymentType;
 use Scrada\Pos\Type\Primitive\Quantity;
 use Scrada\Pos\Type\Primitive\ReceiptId;
+use Scrada\Pos\Type\Primitive\ReceiptNumber;
 use Scrada\Pos\Type\Primitive\Street;
 use Scrada\Pos\Type\Primitive\StreetNumber;
 use Scrada\Pos\Type\Primitive\UnitType;
@@ -51,6 +53,7 @@ trait PosTests
             Receipts::including(
                 Receipt::parameters(
                     receiptCreatedOn: DateTimeWithOffset::fromString('2026-03-25T10:00:00+01:00'),
+                    number: ReceiptNumber::fromString('TEST-001'),
                 ),
             ),
         );
@@ -74,6 +77,7 @@ trait PosTests
             Receipts::including(
                 Receipt::parameters(
                     receiptCreatedOn: DateTimeWithOffset::fromString('2026-03-25T10:00:00+01:00'),
+                    number: ReceiptNumber::fromString('TEST-002'),
                     customer: Customer::parameters(
                         name: CustomerName::fromString('Jan Janssen'),
                         vatNumber: VatNumber::fromString('BE0836836234'),
@@ -120,14 +124,17 @@ trait PosTests
                         Payment::parameters(
                             type: PaymentType::Payment,
                             paymentMethodType: PaymentMethodType::Cash,
+                            paymentMethodName: PaymentMethodName::fromString('Cash'),
                             amount: Amount::fromFloat(10.00),
                         ),
                         Payment::parameters(
                             type: PaymentType::Payment,
                             paymentMethodType: PaymentMethodType::Bancontact,
+                            paymentMethodName: PaymentMethodName::fromString('Bancontact'),
                             amount: Amount::fromFloat(2.18),
                         ),
                     ),
+                    totalInclVat: Amount::fromFloat(12.18),
                 ),
             ),
         );
