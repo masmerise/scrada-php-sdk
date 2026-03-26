@@ -40,7 +40,7 @@ final class ScradaConnector extends Connector
 
     public function hasRequestFailed(Response $response): bool
     {
-        return $response->serverError() && $response->json('errorType') !== 1;
+        return $response->serverError() && $response->json('errorCode') === null;
     }
 
     public function resolveBaseUrl(): string

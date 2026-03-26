@@ -3,6 +3,7 @@
 namespace Scrada\Core\Http;
 
 use JsonException;
+use Saloon\Exceptions\Request\RequestException;
 use Saloon\Exceptions\SaloonException;
 use Saloon\Http\Request;
 use Scrada\Authentication\Failure\CouldNotAuthenticate;
@@ -29,6 +30,8 @@ abstract readonly class ScradaResource
     {
         try {
             $response = $this->client->send($request);
+        } catch (RequestException $ex) {
+            $response = $ex->getResponse();
         } catch (SaloonException $ex) {
             throw UnknownException::sorry($ex);
         }

@@ -36,9 +36,7 @@ final readonly class PosResource extends ScradaResource
             throw new CouldNotAddReceipts(
                 new ScradaError(
                     errorCode: 0,
-                    errorType: 0,
                     defaultFormat: 'At least one receipt is required.',
-                    parameters: [],
                     innerErrors: [],
                 ),
             );
