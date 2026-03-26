@@ -22,7 +22,7 @@ final readonly class AddReceipts
     public function toArray(): array
     {
         return array_map(
-            fn (Receipt $receipt) => $receipt->toArray(),
+            static fn (Receipt $receipt) => $receipt->toArray(),
             $this->receipts->all()
         );
     }

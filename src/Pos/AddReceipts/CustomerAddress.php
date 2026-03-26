@@ -53,6 +53,6 @@ final readonly class CustomerAddress
             'zipCode' => $this->zipCode?->toString(),
             'countrySubentity' => $this->countrySubentity?->toString(),
             'countryCode' => $this->countryCode?->value,
-        ], fn (mixed $v): bool => $v !== null);
+        ], static fn (mixed $v): bool => $v !== null);
     }
 }

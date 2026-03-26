@@ -76,6 +76,6 @@ final readonly class Customer
             'vatNumber' => $this->vatNumber?->toString(),
             'glnNumber' => $this->glnNumber?->toString(),
             'peppolID' => $this->peppolID?->toString(),
-        ], fn (mixed $v): bool => $v !== null);
+        ], static fn (mixed $v): bool => $v !== null);
     }
 }

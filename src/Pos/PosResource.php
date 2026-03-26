@@ -39,7 +39,7 @@ final readonly class PosResource extends ScradaResource
 
         return ReceiptIds::of(
             array_map(
-                fn (string $id) => ReceiptId::fromString($id),
+                static fn (string $id) => ReceiptId::fromString($id),
                 $receiptIds,
             )
         );

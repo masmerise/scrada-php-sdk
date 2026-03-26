@@ -97,11 +97,11 @@ final readonly class Receipt
             'totalInclVat' => $this->totalInclVat?->toFloat(),
             'totalTip' => $this->totalTip?->toFloat(),
             'lines' => $this->lines !== null
-                ? array_map(fn (ReceiptLine $line) => $line->toArray(), $this->lines->all())
+                ? array_map(static fn (ReceiptLine $line) => $line->toArray(), $this->lines->all())
                 : null,
             'payments' => $this->payments !== null
-                ? array_map(fn (Payment $payment) => $payment->toArray(), $this->payments->all())
+                ? array_map(static fn (Payment $payment) => $payment->toArray(), $this->payments->all())
                 : null,
-        ], fn (mixed $v): bool => $v !== null);
+        ], static fn (mixed $v): bool => $v !== null);
     }
 }

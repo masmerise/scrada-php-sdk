@@ -58,6 +58,6 @@ final readonly class Payment
             'paymentMethodType' => $this->paymentMethodType?->value,
             'paymentMethodName' => $this->paymentMethodName?->toString(),
             'reference' => $this->reference?->toString(),
-        ], fn (mixed $v): bool => $v !== null);
+        ], static fn (mixed $v): bool => $v !== null);
     }
 }

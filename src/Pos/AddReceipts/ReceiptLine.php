@@ -91,6 +91,6 @@ final readonly class ReceiptLine
             'itemName' => $this->itemName?->toString(),
             'groupID' => $this->groupID?->toString(),
             'groupName' => $this->groupName?->toString(),
-        ], fn (mixed $v): bool => $v !== null);
+        ], static fn (mixed $v): bool => $v !== null);
     }
 }

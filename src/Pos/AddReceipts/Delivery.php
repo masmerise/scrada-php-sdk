@@ -21,6 +21,6 @@ final readonly class Delivery
     {
         return array_filter([
             'address' => $this->address?->toArray(),
-        ], fn (mixed $v): bool => $v !== null);
+        ], static fn (mixed $v): bool => $v !== null);
     }
 }
