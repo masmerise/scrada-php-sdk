@@ -4,27 +4,25 @@ namespace Scrada\Pos\Type\Primitive;
 
 enum UnitType: int
 {
-    case Piece = 1;
-    case Pair = 2;
-    case Box = 3;
-    case Container = 99;
-    case SquareMetre = 100;
-    case SquareFoot = 200;
-    case RunningMetre = 300;
-    case KilometreWatt = 400;
-    case Hour = 500;
-    case Day = 600;
-    case Month = 700;
-    case Kg = 800;
-    case Gram = 801;
-    case Milligram = 802;
-    case Tonne = 803;
-    case Ounce = 804;
-    case Pound = 805;
-    case Litre = 900;
-    case Millilitre = 901;
-    case Centilitre = 902;
-    case Kilolitre = 903;
-    case Kilometre = 1000;
-    case Hectare = 1100;
+    case OneOrUnit = 1;
+    case Piece = 2;
+    case Pallet = 3;
+    case Container20ft = 4;
+    case Container40ft = 5;
+    case Second = 100;
+    case Minute = 101;
+    case Hour = 102;
+    case Day = 103;
+    case Month = 104;
+    case Year = 105;
+    case Week = 106;
+    case Milligram = 200;
+    case Gram = 201;
+    case Kilogram = 202;
+    case Ton = 203;
+    case Meter = 300;
+    case Kilometer = 301;
+    case Liter = 400;
+    case Milliliter = 401;
+    case Hectare = 500;
 }
