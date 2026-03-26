@@ -46,10 +46,10 @@ final readonly class Payment
         );
     }
 
-    /** @return array<string, float|int|string|null> */
+    /** @return array<string, float|int|string> */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'paymentID' => $this->paymentID?->toString(),
             'paymentDateTime' => $this->paymentDateTime?->toString(),
             'type' => $this->type?->value,
@@ -58,6 +58,6 @@ final readonly class Payment
             'paymentMethodType' => $this->paymentMethodType?->value,
             'paymentMethodName' => $this->paymentMethodName?->toString(),
             'reference' => $this->reference?->toString(),
-        ];
+        ], fn (mixed $v): bool => $v !== null);
     }
 }

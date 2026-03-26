@@ -60,10 +60,10 @@ final readonly class Customer
         );
     }
 
-    /** @return array<string, string|array<string, string|null>|null> */
+    /** @return array<string, string|array<string, string>> */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'customerID' => $this->customerID?->toString(),
             'name' => $this->name?->toString(),
             'accountingCode' => $this->accountingCode?->toString(),
@@ -76,6 +76,6 @@ final readonly class Customer
             'vatNumber' => $this->vatNumber?->toString(),
             'glnNumber' => $this->glnNumber?->toString(),
             'peppolID' => $this->peppolID?->toString(),
-        ];
+        ], fn (mixed $v): bool => $v !== null);
     }
 }

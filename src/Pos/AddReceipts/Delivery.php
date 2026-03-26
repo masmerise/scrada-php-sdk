@@ -16,11 +16,11 @@ final readonly class Delivery
         );
     }
 
-    /** @return array<string, array<string, string|null>|null> */
+    /** @return array<string, array<string, string>> */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'address' => $this->address?->toArray(),
-        ];
+        ], fn (mixed $v): bool => $v !== null);
     }
 }

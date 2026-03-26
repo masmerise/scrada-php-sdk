@@ -72,10 +72,10 @@ final readonly class ReceiptLine
         );
     }
 
-    /** @return array<string, float|int|string|null> */
+    /** @return array<string, float|int|string> */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'lineID' => $this->lineID?->toString(),
             'orderDateTime' => $this->orderDateTime?->toString(),
             'quantity' => $this->quantity?->toFloat(),
@@ -91,6 +91,6 @@ final readonly class ReceiptLine
             'itemName' => $this->itemName?->toString(),
             'groupID' => $this->groupID?->toString(),
             'groupName' => $this->groupName?->toString(),
-        ];
+        ], fn (mixed $v): bool => $v !== null);
     }
 }

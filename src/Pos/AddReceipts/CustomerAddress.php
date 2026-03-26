@@ -42,10 +42,10 @@ final readonly class CustomerAddress
         );
     }
 
-    /** @return array<string, string|null> */
+    /** @return array<string, string> */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'street' => $this->street?->toString(),
             'streetNumber' => $this->streetNumber?->toString(),
             'streetBox' => $this->streetBox?->toString(),
@@ -53,6 +53,6 @@ final readonly class CustomerAddress
             'zipCode' => $this->zipCode?->toString(),
             'countrySubentity' => $this->countrySubentity?->toString(),
             'countryCode' => $this->countryCode?->toString(),
-        ];
+        ], fn (mixed $v): bool => $v !== null);
     }
 }

@@ -77,10 +77,10 @@ final readonly class Receipt
         );
     }
 
-    /** @return array<string, bool|float|int|string|array<int|string, mixed>|null> */
+    /** @return array<string, bool|float|int|string|array<int|string, mixed>> */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'receiptID' => $this->receiptID?->toString(),
             'number' => $this->number?->toString(),
             'receiptCreatedOn' => $this->receiptCreatedOn->toString(),
@@ -102,6 +102,6 @@ final readonly class Receipt
             'payments' => $this->payments !== null
                 ? array_map(fn (Payment $payment) => $payment->toArray(), $this->payments->all())
                 : null,
-        ];
+        ], fn (mixed $v): bool => $v !== null);
     }
 }
