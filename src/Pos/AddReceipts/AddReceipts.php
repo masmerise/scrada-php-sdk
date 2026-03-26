@@ -3,6 +3,7 @@
 namespace Scrada\Pos\AddReceipts;
 
 use Scrada\Pos\Type\Receipts;
+use Webmozart\Assert\Assert;
 
 final readonly class AddReceipts
 {
@@ -12,6 +13,8 @@ final readonly class AddReceipts
 
     public static function parameters(Receipts $receipts): self
     {
+        Assert::notEmpty($receipts->all(), 'Receipts must not be empty.');
+
         return new self(receipts: $receipts);
     }
 
