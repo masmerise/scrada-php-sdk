@@ -52,7 +52,7 @@ final readonly class CustomerAddress
             'city' => $this->city?->toString(),
             'zipCode' => $this->zipCode?->toString(),
             'countrySubentity' => $this->countrySubentity?->toString(),
-            'countryCode' => $this->countryCode?->toString(),
+            'countryCode' => $this->countryCode?->value,
         ], fn (mixed $v): bool => $v !== null);
     }
 }

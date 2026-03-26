@@ -67,7 +67,7 @@ final readonly class Customer
             'customerID' => $this->customerID?->toString(),
             'name' => $this->name?->toString(),
             'accountingCode' => $this->accountingCode?->toString(),
-            'languageCode' => $this->languageCode?->toString(),
+            'languageCode' => $this->languageCode?->value,
             'address' => $this->address?->toArray(),
             'phone' => $this->phone?->toString(),
             'email' => $this->email?->toString(),
