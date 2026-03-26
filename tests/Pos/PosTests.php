@@ -11,7 +11,6 @@ use Scrada\Pos\AddReceipts\Customer;
 use Scrada\Pos\AddReceipts\CustomerAddress;
 use Scrada\Pos\AddReceipts\Delivery;
 use Scrada\Pos\AddReceipts\DeliveryAddress;
-use Scrada\Pos\AddReceipts\Failure\CouldNotAddReceipts;
 use Scrada\Pos\AddReceipts\Payment;
 use Scrada\Pos\AddReceipts\Receipt;
 use Scrada\Pos\AddReceipts\ReceiptLine;
@@ -152,13 +151,9 @@ trait PosTests
     public function cannot_add_empty_receipts(): void
     {
         // Assert
-        $this->expectException(CouldNotAddReceipts::class);
-
-        // Arrange
-        $companyId = CompanyId::fromString($_ENV['COMPANY_ID']);
-        $data = AddReceipts::parameters(Receipts::empty());
+        $this->expectException(\InvalidArgumentException::class);
 
         // Act
-        $this->scrada->pos->addReceipts($companyId, $data);
+        AddReceipts::parameters(Receipts::empty());
     }
 }
