@@ -80,7 +80,6 @@ trait PosTests
                     number: ReceiptNumber::fromString('TEST-002'),
                     customer: Customer::parameters(
                         name: CustomerName::fromString('Jan Janssen'),
-                        vatNumber: VatNumber::fromString('BE0836836234'),
                         address: CustomerAddress::parameters(
                             street: Street::fromString('Gaston Crommenlaan'),
                             streetNumber: StreetNumber::fromString('9'),
@@ -88,6 +87,7 @@ trait PosTests
                             zipCode: ZipCode::fromString('9000'),
                             countryCode: CountryCode::fromString('BE'),
                         ),
+                        vatNumber: VatNumber::fromString('BE0836836234'),
                     ),
                     delivery: Delivery::parameters(
                         address: DeliveryAddress::parameters(
@@ -98,43 +98,43 @@ trait PosTests
                             countryCode: CountryCode::fromString('BE'),
                         ),
                     ),
+                    totalInclVat: Amount::fromFloat(12.18),
                     lines: ReceiptLines::including(
                         ReceiptLine::parameters(
                             quantity: Quantity::fromInt(2),
                             unitType: UnitType::Piece,
-                            itemName: ItemName::fromString('Friet speciaal'),
+                            itemInclVat: Amount::fromFloat(4.84),
                             vatType: VatType::Standard,
                             vatPercentage: VatPercentage::fromInt(21),
-                            itemInclVat: Amount::fromFloat(4.84),
                             totalInclVat: Amount::fromFloat(9.68),
                             itemType: ItemType::Product,
+                            itemName: ItemName::fromString('Friet speciaal'),
                         ),
                         ReceiptLine::parameters(
                             quantity: Quantity::fromInt(1),
                             unitType: UnitType::Piece,
-                            itemName: ItemName::fromString('Frisdrank'),
+                            itemInclVat: Amount::fromFloat(2.50),
                             vatType: VatType::Standard,
                             vatPercentage: VatPercentage::fromInt(6),
-                            itemInclVat: Amount::fromFloat(2.50),
                             totalInclVat: Amount::fromFloat(2.50),
                             itemType: ItemType::Product,
+                            itemName: ItemName::fromString('Frisdrank'),
                         ),
                     ),
                     payments: Payments::including(
                         Payment::parameters(
                             type: PaymentType::Payment,
+                            amount: Amount::fromFloat(10.00),
                             paymentMethodType: PaymentMethodType::Cash,
                             paymentMethodName: PaymentMethodName::fromString('Cash'),
-                            amount: Amount::fromFloat(10.00),
                         ),
                         Payment::parameters(
                             type: PaymentType::Payment,
+                            amount: Amount::fromFloat(2.18),
                             paymentMethodType: PaymentMethodType::Bancontact,
                             paymentMethodName: PaymentMethodName::fromString('Bancontact'),
-                            amount: Amount::fromFloat(2.18),
                         ),
                     ),
-                    totalInclVat: Amount::fromFloat(12.18),
                 ),
             ),
         );
