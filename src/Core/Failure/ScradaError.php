@@ -11,21 +11,9 @@ final readonly class ScradaError
         public int $errorCode,
 
         /**
-         * Error type.
-         */
-        public int $errorType,
-
-        /**
          * Localized error text.
          */
         public string $defaultFormat,
-
-        /**
-         * Error parameters.
-         *
-         * @var string[]
-         */
-        public array $parameters,
 
         /**
          * Inner errors.
