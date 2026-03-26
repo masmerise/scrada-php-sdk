@@ -4,6 +4,7 @@ namespace Scrada\Pos;
 
 use Scrada\Authentication\Failure\CouldNotAuthenticate;
 use Scrada\Company\Type\Primitive\CompanyId;
+use Scrada\Core\Failure\ScradaError;
 use Scrada\Core\Failure\UnknownException;
 use Scrada\Core\Failure\ValidationException;
 use Scrada\Core\Http\ScradaResource;
@@ -31,6 +32,18 @@ final readonly class PosResource extends ScradaResource
      */
     public function addReceipts(CompanyId $companyId, AddReceipts $data): ReceiptIds
     {
+        if ($data->receipts->count() === 0) {
+            throw new CouldNotAddReceipts(
+                new ScradaError(
+                    errorCode: 0,
+                    errorType: 0,
+                    defaultFormat: 'At least one receipt is required.',
+                    parameters: [],
+                    innerErrors: [],
+                ),
+            );
+        }
+
         /** @var string[] $receiptIds */
         $receiptIds = $this->send(
             request: new AddReceiptsRequest($companyId, $data),
