@@ -6,10 +6,8 @@ enum PaymentMethodType: int
 {
     case Other = 1;
     case Cash = 2;
-    case Cheque = 3;
-    case DebitCard = 4;
-    case Bancontact = 5;
+    case WireTransfer = 4;
+    case DebitCard = 5;
     case CreditCard = 6;
     case GiftCard = 7;
-    case EGiftCard = 8;
 }

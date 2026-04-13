@@ -5,5 +5,5 @@ namespace Scrada\Pos\Type\Primitive;
 enum PaymentType: int
 {
     case Payment = 1;
-    case CashDraft = 2;
+    case CashInOut = 2;
 }

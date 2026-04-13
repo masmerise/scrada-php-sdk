@@ -130,7 +130,7 @@ trait PosTests
                         Payment::parameters(
                             type: PaymentType::Payment,
                             amount: Amount::fromFloat(2.18),
-                            paymentMethodType: PaymentMethodType::Bancontact,
+                            paymentMethodType: PaymentMethodType::DebitCard,
                             paymentMethodName: PaymentMethodName::fromString('Bancontact'),
                         ),
                     ),
