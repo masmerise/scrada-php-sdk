@@ -2,6 +2,12 @@
 
 All notable changes to `scrada-php-sdk` will be documented in this file.
 
+## 1.1.0 - 2026-04-13
+
+- Added `Pos\VatType::OutsideScopeOfTax`
+- Fixed `Pos\PaymentMethodType` 
+- Fixed `Pos\PaymentType`
+
 ## 1.0.0 - 2026-03-26
 
 - POS Add Receipts
