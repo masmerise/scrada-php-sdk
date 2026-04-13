@@ -25,4 +25,5 @@ enum VatType: int
     case OssGoods = 70;
     case OssServices = 71;
     case OssImport = 72;
+    case OutsideScopeOfTax = 99;
 }
