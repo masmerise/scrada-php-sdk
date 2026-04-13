@@ -4,14 +4,10 @@ namespace Scrada\Pos\Type\Primitive;
 
 use JsonSerializable;
 use Stringable;
-use Webmozart\Assert\Assert;
 
 final readonly class Quantity implements JsonSerializable, Stringable
 {
-    private function __construct(private float $quantity)
-    {
-        Assert::greaterThanEq($quantity, 0, 'Quantity must be greater than or equal to 0.');
-    }
+    private function __construct(private float $quantity) {}
 
     public static function fromInt(int $quantity): self
     {
